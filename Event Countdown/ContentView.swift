@@ -9,13 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            EventListView()
+            .navigationBarTitleDisplayMode(.large)
+            .onAppear {
+                /* At the first time coming back from EventDetailView, the title are being set as .inline title. A second navigate view fixed it
+                 I tried to add this line to fix the issue but doesn't work :((((
+                 */
+                UINavigationBar.appearance().prefersLargeTitles = true
+            }
         }
-        .padding()
     }
 }
 
