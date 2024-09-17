@@ -13,12 +13,12 @@
 		1CFCD9DB2C88597A0004D361 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CFCD9DA2C88597A0004D361 /* Preview Assets.xcassets */; };
 		1CFCD9F12C8F457F0004D361 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCD9F02C8F457F0004D361 /* Event.swift */; };
 		1CFCD9F42C8F46540004D361 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCD9F32C8F46540004D361 /* EventItem.swift */; };
-		1CFCD9F72C8F47960004D361 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCD9F62C8F47960004D361 /* DateUtils.swift */; };
 		1CFCD9F92C8F4C5E0004D361 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCD9F82C8F4C5E0004D361 /* EventListView.swift */; };
 		1CFCD9FB2C8F4D2F0004D361 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCD9FA2C8F4D2F0004D361 /* EventDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C86AEC12C92EA9B007433CB /* Event-Countdown-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Event-Countdown-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1CFCD9D02C8859760004D361 /* Event Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CFCD9D32C8859760004D361 /* Event_CountdownApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event_CountdownApp.swift; sourceTree = "<group>"; };
 		1CFCD9D52C8859760004D361 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,7 +26,6 @@
 		1CFCD9DA2C88597A0004D361 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1CFCD9F02C8F457F0004D361 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		1CFCD9F32C8F46540004D361 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
-		1CFCD9F62C8F47960004D361 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		1CFCD9F82C8F4C5E0004D361 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		1CFCD9FA2C8F4D2F0004D361 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,7 +60,7 @@
 		1CFCD9D22C8859760004D361 /* Event Countdown */ = {
 			isa = PBXGroup;
 			children = (
-				1CFCD9F52C8F47850004D361 /* utils */,
+				1C86AEC12C92EA9B007433CB /* Event-Countdown-Info.plist */,
 				1CFCD9F22C8F463C0004D361 /* views */,
 				1CFCD9EF2C8F45710004D361 /* entities */,
 				1CFCD9D32C8859760004D361 /* Event_CountdownApp.swift */,
@@ -96,14 +95,6 @@
 				1CFCD9FA2C8F4D2F0004D361 /* EventDetailView.swift */,
 			);
 			path = views;
-			sourceTree = "<group>";
-		};
-		1CFCD9F52C8F47850004D361 /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				1CFCD9F62C8F47960004D361 /* DateUtils.swift */,
-			);
-			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,7 +170,6 @@
 				1CFCD9D62C8859760004D361 /* ContentView.swift in Sources */,
 				1CFCD9F92C8F4C5E0004D361 /* EventListView.swift in Sources */,
 				1CFCD9F12C8F457F0004D361 /* Event.swift in Sources */,
-				1CFCD9F72C8F47960004D361 /* DateUtils.swift in Sources */,
 				1CFCD9D42C8859760004D361 /* Event_CountdownApp.swift in Sources */,
 				1CFCD9F42C8F46540004D361 /* EventItem.swift in Sources */,
 				1CFCD9FB2C8F4D2F0004D361 /* EventDetailView.swift in Sources */,
@@ -318,6 +308,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Event Countdown/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Event-Countdown-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to capture photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -346,6 +339,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Event Countdown/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Event-Countdown-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to capture photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

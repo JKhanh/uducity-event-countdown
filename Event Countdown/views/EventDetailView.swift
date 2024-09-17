@@ -14,20 +14,20 @@ struct EventDetailView: View {
     @State var newEvent: Event
     @State var textUpdated = false
     var isCreate: Bool
-    @Binding var eventList: [Event]
+    let onSave: (Event) -> Void
     
-    init(eventList: Binding<[Event]>) {
+    init(onSave: @escaping (Event) -> Void) {
         event = Event(title: "", date: Date(), textColor: .black)
         newEvent = event
         self.isCreate = true
-        self._eventList = eventList
+        self.onSave = onSave
     }
     
-    init(event: Event, eventList: Binding<[Event]>) {
+    init(event: Event, onSave: @escaping (Event) -> Void) {
         self.event = event
         newEvent = event
         self.isCreate = false
-        self._eventList = eventList
+        self.onSave = onSave
     }
     
     var body: some View {
@@ -66,13 +66,7 @@ struct EventDetailView: View {
     }
     
     private func saveAndBackToMain() {
-        if isCreate {
-            eventList.append(newEvent)
-        } else {
-            if let index = eventList.firstIndex(where: { $0.id == newEvent.id }) {
-                eventList[index] = newEvent
-            }
-        }
+        onSave(newEvent)
         dismiss()
     }
 }

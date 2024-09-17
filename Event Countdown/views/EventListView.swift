@@ -7,32 +7,49 @@
 
 import SwiftUI
 
+enum DetailMode: Hashable {
+    case add
+    case edit(Event)
+}
+
 struct EventListView: View {
     @State var eventList = Event.all()
     
     var body: some View {
-        List(eventList.sorted(by: { $0.date < $1.date})) { event in
-            NavigationLink {
-                EventDetailView(event: event, eventList: $eventList)
-            } label: {
-                EventItem(event: event)
-                    .swipeActions {
-                        Button {
-                            deleteEvent(event)
-                        } label: {
-                            Image(systemName: "trash")
-                                .tint(.red)
+        List() {
+            ForEach(eventList.sorted(by: { $0.date < $1.date})) { event in
+                NavigationLink(value: DetailMode.edit(event)) {
+                    EventItem(event: event)
+                        .swipeActions {
+                            Button {
+                                deleteEvent(event)
+                            } label: {
+                                Image(systemName: "trash")
+                                    .tint(.red)
+                            }
                         }
-                    }
+                }
             }
         }
         .navigationTitle("Events")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink {
-                    EventDetailView(eventList: $eventList)
-                } label: {
+                NavigationLink(value: DetailMode.add) {
                     Image(systemName: "plus")
+                }
+            }
+        }
+        .navigationDestination(for: DetailMode.self) { mode in
+            switch(mode) {
+            case .add:
+                EventDetailView() { event in
+                    eventList.append(event)
+                }
+            case .edit(let editEvent):
+                EventDetailView(event: editEvent) { event in
+                    if let index = eventList.firstIndex(where: { $0.id == event.id }) {
+                        eventList[index] = event
+                    }
                 }
             }
         }
